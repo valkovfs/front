@@ -1,5 +1,5 @@
 const initialState = {
-    token: false,
+    JTW_TOKEN: '',
 };
 
 export default initialState;

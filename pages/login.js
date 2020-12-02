@@ -11,7 +11,7 @@ export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [jwtToken, setJwtToken] = useState('')
-    const setJwt = useDispatch({type: 'JWT_TOKEN'})
+    const setJwt = useDispatch()
 
     useEffect(() => {
       if (jwtToken !== '') {
@@ -19,15 +19,15 @@ export default function Login() {
       }
     },[jwtToken])
 
-    const checkLogin = () => {
+    const checkLogin =  () => {
         axios.post('http://localhost:5000/auth/sign_in', {
             "email": email,
             "password": password
-        }).then((data) => {
+        }).then(async (data) => {
             if(data && data.data.token)
                 console.log(data)
-            setJwt(jwtSave(data.data.token))
-            setJwtToken(data.data.token)
+           await setJwt(jwtSave(data.data.token))
+           await setJwtToken(data.data.token)
             Router.push('/admin')
 
         })
@@ -39,7 +39,12 @@ export default function Login() {
                 <title>Kids-it - Программирование для детей</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
-            <Header />
+            <Header
+                request={true}
+                signout={true}
+                signin={true}
+                home={false}
+            />
             <div className="request">
 
                 <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>

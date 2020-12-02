@@ -1,10 +1,9 @@
-import JWT_TOKEN from "../actions/jwtAction";
+import {JWT_TOKEN} from "../actions/jwtAction";
 
-function jwtSave(token) {
+export default function jwtSave(value) {
     return {
-        type: JWT_TOKEN,
-        value: token
+        type: 'JWT_TOKEN',
+        value: value
     };
 }
 
-export default jwtSave;

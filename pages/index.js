@@ -14,7 +14,12 @@ export default function Home() {
             <title>Kids-it - Программирование для детей</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
-        <Header />
+        <Header
+            request={false}
+            signout={true}
+            signin={false}
+            home={true}
+        />
     </div>
   )
 }
