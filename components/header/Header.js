@@ -1,11 +1,11 @@
-
+import Link from 'next/link'
 
 export default function Header(func) {
 
     return (
             <header className="header">
-                <a href="/"><div className="header_logo">KIDS-IT</div></a>
-                <button func={func} className="header_button">Отправить заявку</button>
+                <Link href="/"><div className="header_logo">KIDS-IT</div></Link>
+                <Link href="/request"><button className="header_button">Отправить заявку</button></Link>
             </header>
     )
 }

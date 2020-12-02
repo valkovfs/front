@@ -19,8 +19,10 @@ a {
   display: flex;
   padding:  1.5% 10% 1.5% 10%;
   justify-content: space-between;
-  background-color: #06799F;
+  background-color: #0E53A7;
   align-items: center;
+  -webkit-box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.57);
+  box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.57);
 }
 
 .header_logo{
@@ -30,7 +32,7 @@ a {
 
 .header_button {
   transition: 0.5s;
-  background-color: #61B4CF;
+  background-color: #4284D3;
   border: none;
   color: #FFF;
   border-radius: 5px;
@@ -48,5 +50,12 @@ a {
   border-radius: 5px;
   width: 150px;
   height: 30px;
+}
+
+.request {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  margin: 100px;
 }
 

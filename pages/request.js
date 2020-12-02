@@ -24,9 +24,13 @@ export default function Home() {
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
             <Header />
+            <div className="request">
+
             <input type="text" value={name} onChange={(e) => setName(e.target.value)}/>
             <input type="text" value={mobileNumber} onChange={(e) => setMobileNumber(e.target.value)}/>
             <button onClick={postRequest}> Отправить заяку</button>
+
+            </div>
 
         </div>
     )

@@ -1,0 +1,5 @@
+const initialState = {
+    token: false,
+};
+
+export default initialState;
