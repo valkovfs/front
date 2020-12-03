@@ -1,0 +1,53 @@
+.burger {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 3;
+  padding-top: -5px;
+  position: fixed;
+  margin-left: 2vw;
+  right: 8vw;
+}
+
+.bar {
+  z-index: 5;
+  display: block;
+  background-color: #00AF64;
+  width: 30px;
+  height: 4px;
+  border-radius: 5px;
+  margin-bottom: 3px;
+  transition: background-color .3s ease-in, transform .3s ease-in, width .6s ease-in;
+
+  &.top-tr {
+    -webkit-transform: translateY(8px) translateX(-2px) rotateZ(25deg);
+    -moz-transform: translateY(8px) translateX(-2px) rotateZ(25deg);
+    -ms-transform: translateY(8px) translateX(-2px) rotateZ(25deg);
+    -o-transform: translateY(8px) translateX(-2px) rotateZ(25deg);
+    transform: translateY(12px) translateX(16px) rotateZ(-385deg);
+    width: 20px;
+    height: 3px;
+    background-color: #0799d3;
+  }
+  &.bottom-tr {
+    -webkit-transform: translateY(-8px) translateX(-2px) rotateZ(-25deg);
+    -moz-transform: translateY(-8px) translateX(-2px) rotateZ(-25deg);
+    -ms-transform: translateY(-8px) translateX(-2px) rotateZ(-25deg);
+    -o-transform: translateY(-8px) translateX(-2px) rotateZ(-25deg);
+    transform: translateY(-12px) translateX(16px) rotateZ(385deg);
+    width: 20px;
+    background-color: #0799d3;
+    height: 3px;
+  }
+  &.middle-tr {
+    background-color: #0799d3;
+    width: 35px;
+    -webkit-transform: translateX(-2px);
+    -moz-transform: translateX(-2px);
+    -ms-transform: translateX(-2px);
+    -o-transform: translateX(-2px);
+    transform: translateX(2px) rotateZ(540deg);
+  }
+}

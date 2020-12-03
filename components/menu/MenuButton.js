@@ -1,23 +1,21 @@
 import {useSelector, useDispatch} from "react-redux";
 
-export default function MenuButton({menuState, hideMenu}) {
+export default function MenuButton({menuState, hideMenu, func}) {
 
     return (
         <>
-            <div hidden={hideMenu}>
             {!menuState
-                ? <label htmlFor="header_button--menu">
+                ? <label hidden={hideMenu} onClick={func} className="burger">
                     <span className="bar top"></span>
                     <span className="bar middle"></span>
                     <span className="bar bottom"></span>
                 </label>
-                : <label htmlFor="header_button--menu">
+                : <label hidden={hideMenu} onClick={func} className="burger">
                     <span className="bar top-tr"></span>
                     <span className="bar middle-tr"></span>
                     <span className="bar bottom-tr"></span>
                 </label>
             }
-            </div>
         </>
     )
 }

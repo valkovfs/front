@@ -3,8 +3,8 @@ import Head from 'next/head'
 import Header from "../components/header/Header";
 import styles from '../styles/Home.module.css'
 import axios from 'axios'
-import Main from "../components/main";
-import Menu from "../components/header/menu";
+import Main from "../components/main/Main";
+import Menu from "../components/menu/Menu";
 import Loader from 'react-loader-spinner'
 
 

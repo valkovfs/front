@@ -1,6 +1,9 @@
 import '../styles/globals.css'
 import {Provider} from 'react-redux'
 import { useStore } from '../redux/store'
+import '../styles/header.scss'
+import '../styles/burger.scss'
+import '../styles/menu.scss'
 
 
 function MyApp({ Component, pageProps }) {
