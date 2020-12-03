@@ -6,6 +6,7 @@ import axios from 'axios'
 import Main from "../components/main/Main";
 import Menu from "../components/menu/Menu";
 import Loader from 'react-loader-spinner'
+import CustomLoader from "../components/Loader";
 
 
 export default function Home() {
@@ -13,9 +14,9 @@ export default function Home() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoading(true)
-        }, 3000);
+        }, 500);
         return () => clearTimeout(timer);
-    }, []);
+    });
 
     return (
         <>
@@ -39,17 +40,8 @@ export default function Home() {
                         </div>
                     </div>
                     :
-                    <div className="loader">
-                        <Loader
-                            type="Puff"
-                            color="#00BFFF"
-                            height={60}
-                            width={60}
-                            timeout={3000} //3 secs
-                        />
-                    </div>}
+                    <CustomLoader />}
             </>
-
         </>
     )
 }
