@@ -1,4 +1,6 @@
 .burger {
+  transition: 0.6s ease-out;
+  transition-delay: 0.4s;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
@@ -8,7 +10,7 @@
   padding-top: -5px;
   position: absolute;
   margin-left: 2vw;
-  right: 8vw;
+  right: 5vw;
 }
 
 .bar {
@@ -27,6 +29,8 @@
     -ms-transform: translateY(8px) translateX(-2px) rotateZ(25deg);
     -o-transform: translateY(8px) translateX(-2px) rotateZ(25deg);
     transform: translateY(12px) translateX(16px) rotateZ(-385deg);
+    transition: 0.2s ease-out;
+    transition-delay: 0.7s;
     width: 20px;
     height: 3px;
     background-color: #0799d3;
@@ -37,11 +41,15 @@
     -ms-transform: translateY(-8px) translateX(-2px) rotateZ(-25deg);
     -o-transform: translateY(-8px) translateX(-2px) rotateZ(-25deg);
     transform: translateY(-12px) translateX(16px) rotateZ(385deg);
+    transition: 0.5s ease-out;
+    transition-delay: 0.7s;
     width: 20px;
     background-color: #0799d3;
     height: 3px;
   }
   &.middle-tr {
+    transition: 0.5s ease-out;
+    transition-delay: 0.7s;
     background-color: #0799d3;
     width: 35px;
     -webkit-transform: translateX(-2px);
@@ -50,4 +58,19 @@
     -o-transform: translateX(-2px);
     transform: translateX(2px) rotateZ(540deg);
   }
+}
+
+.burger-opened {
+  transition: 0.5s ease-out;
+  transition-delay: 0.65s;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 3;
+  padding-top: -5px;
+  position: absolute;
+  margin-left: 2vw;
+  right: 14vw;
 }
