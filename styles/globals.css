@@ -26,6 +26,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 
@@ -41,7 +42,7 @@ a {
   display: flex;
   margin: 10px;
   align-items: center;
-  width: 90vw;
+  width: 95vw;
   height: 50vh;
   border-radius: 15px;
   background-color: #4284D3;
