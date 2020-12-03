@@ -3,14 +3,15 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
 import jwtReducer from './reducers/jwtReducer'
-
+import menuReducer from "./reducers/menuReducer";
 
 let store
 
 function initStore(initialState) {
     return createStore(
         combineReducers({
-            jwtReducer
+            jwtReducer,
+            menuReducer
         }),
         initialState,
         composeWithDevTools(applyMiddleware(thunkMiddleware))
