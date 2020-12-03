@@ -1,9 +1,10 @@
 import {useSelector, useDispatch} from "react-redux";
 
-export default function MenuButton({menuState}) {
+export default function MenuButton({menuState, hideMenu}) {
 
     return (
         <>
+            <div hidden={hideMenu}>
             {!menuState
                 ? <label htmlFor="header_button--menu">
                     <span className="bar top"></span>
@@ -16,6 +17,7 @@ export default function MenuButton({menuState}) {
                     <span className="bar bottom-tr"></span>
                 </label>
             }
+            </div>
         </>
     )
 }
