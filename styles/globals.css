@@ -35,7 +35,13 @@ a {
   width: 100%;
 }
 
-
+.login-img {
+  width: 60vw;
+  position: absolute;
+  bottom: 0;
+  right: 100px;
+  z-index: -1;
+}
 
 
 .request {

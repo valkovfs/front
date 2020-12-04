@@ -4,6 +4,7 @@ import { useStore } from '../redux/store'
 import '../styles/header.scss'
 import '../styles/burger.scss'
 import '../styles/menu.scss'
+import '../styles/signin.scss'
 
 
 function MyApp({ Component, pageProps }) {

@@ -10,6 +10,7 @@ import Loader from 'react-loader-spinner';
 import Main from "../components/main/Main";
 import Menu from "../components/menu/Menu";
 import CustomLoader from "../components/Loader";
+import dev from '../styles/img/dev.png'
 
 export default function Login() {
     const [isLoading, setIsLoading] = useState(false);
@@ -61,16 +62,17 @@ export default function Login() {
                         home={true}
                     />
 
-                        <div className="container">
-                            <div className="request">
+                            <div className="signin">
+                                <div className="signin_inputs">
 
-                                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                                <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                                <button onClick={checkLogin}> Login</button>
+                                    <input className="signin_inputs-input" type="text" placeholder="e-mail" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                                    <input className="signin_inputs-input" type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                                    <div className="signin_inputs-button" onClick={checkLogin}> Sign-in</div>
+                                </div>
 
                             </div>
                             <Menu/>
-                        </div>
+                            <img className="signin_img" src={dev} alt="Developer"/>
                     </div>
                     :
                     <CustomLoader />
