@@ -2,12 +2,9 @@ import {useState, useEffect} from 'react'
 import Head from 'next/head'
 import Router from 'next/router'
 import Header from "../components/header/Header";
-import styles from '../styles/Home.module.css'
 import axios from 'axios'
 import {useSelector, useDispatch} from "react-redux";
 import jwtSave from "../redux/actionCreators/jwtActionCreator";
-import Loader from 'react-loader-spinner';
-import Main from "../components/main/Main";
 import Menu from "../components/menu/Menu";
 import CustomLoader from "../components/Loader";
 import dev from '../styles/img/dev.png'
@@ -17,6 +14,7 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [jwtToken, setJwtToken] = useState('');
+    const [img , setImg] = useState()
     const setJwt = useDispatch();
 
     useEffect(() => {
@@ -50,7 +48,7 @@ export default function Login() {
     return (
         <div>
             <Head>
-                <title>Kids-it - Программирование для детей</title>
+                <title>VALKOV.DEV</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
             </Head>
             <>

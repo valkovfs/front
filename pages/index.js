@@ -21,7 +21,7 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>Kids-it - Программирование для детей</title>
+                <title>VALKOV.DEV</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
             </Head>
             <>
