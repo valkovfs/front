@@ -5,10 +5,15 @@ import Head from 'next/head'
 import axios from 'axios'
 import Header from "../../components/header/Header";
 import jwtClear from "../../redux/actionCreators/jwtClear";
+import {LoadableContext} from "next/dist/next-server/lib/loadable-context";
+import CustomLoader from "../../components/Loader";
+import Menu from "../../components/menu/Menu";
 
 export default function index() {
     const jwtToken = useSelector(state => state.jwtReducer[0])
     const setJwt = useDispatch()
+
+
     const getRequests = () => {
         axios.get('http://localhost:5000/api/requests')
             .then((request) => {
@@ -41,8 +46,11 @@ export default function index() {
                         signin={true}
                         func={signOut}
                         home={true}/>
+                        <div className="container">
+                            <Menu/>
+                        </div>
                 </div>
-                : <div>Loading</div>
+                : <CustomLoader/>
             }
         </div>
     )

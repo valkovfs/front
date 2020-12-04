@@ -19,7 +19,7 @@ export default function Login() {
     const setJwt = useDispatch();
 
     useEffect(() => {
-        if (jwtToken !== '') {
+        if (jwtToken) {
             Router.push('/admin')
         }
     }, [jwtToken])
