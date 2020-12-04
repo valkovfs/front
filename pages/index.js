@@ -34,7 +34,7 @@ export default function Home() {
                     />
 
                         <div className="container">
-                            Hi! I will show my project!
+                            git s
                             <Main/>
 
                             <Menu/>
