@@ -1,9 +1,13 @@
-import {useSelector, useDispatch} from "react-redux";
+import MenuBtn from "./MenuBtn";
+import openMenu from "../../redux/actionCreators/menuActionCreator";
+import projects from "../../styles/img/projects.svg";
+import Router from "next/router";
+import signin from '../../styles/img/sign-in.svg'
 
-export default function MenuButton({menuState, hideMenu, func}) {
+export default function BurgerButton({menuState, hideMenu, func}) {
 
     return (
-        <>
+        <div className="menu">
             {!menuState
                 ? <label hidden={hideMenu} onClick={func} className={!menuState ?"burger" : "burger-opened"}>
                     <span className="bar top"></span>
@@ -16,6 +20,6 @@ export default function MenuButton({menuState, hideMenu, func}) {
                     <span className="bar bottom-tr"></span>
                 </label>
             }
-        </>
+        </div>
     )
 }
