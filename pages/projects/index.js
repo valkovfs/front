@@ -25,6 +25,8 @@ export default function index({requests}) {
         <div></div>
     )
 
+    console.log(process.env.API_KEY)
+
 
 
     return (
@@ -64,7 +66,7 @@ export default function index({requests}) {
 }
 
 export async function getServerSideProps() {
-    const res = await fetch('http://localhost:5000/api/projects')
+    const res = await fetch(`${process.env.API_KEY}api/projects`)
     const data = await res.json()
 
         console.log(data[1])

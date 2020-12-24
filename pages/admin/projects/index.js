@@ -22,7 +22,7 @@ export default function index({projects}) {
 
 
     const sendRequests = () => {
-        axios.post('http://localhost:5000/api/projects', {
+        axios.post(`${process.env.API_KEY}api/projects`, {
             "name": name,
             "description": description,
             "pageLink": pageLink,
@@ -33,7 +33,7 @@ export default function index({projects}) {
     }
 
     const deleteProject = (projectId) => {
-        axios.delete(`http://localhost:5000/api/projects/${projectId}`)
+        axios.delete(`${process.env.API_KEY}api/projects${projectId}`)
     }
 
     const signOut = async () => {
@@ -109,7 +109,7 @@ export default function index({projects}) {
 }
 
 export async function getServerSideProps() {
-    const res = await fetch('http://localhost:5000/api/projects')
+    const res = await fetch(`${process.env.API_KEY}api/projects`)
     const data = await res.json()
 
     console.log(data[1])

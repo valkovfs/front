@@ -9,7 +9,7 @@ export default function Home() {
     const [mobileNumber, setMobileNumber] = useState('')
 
     const postRequest = () => {
-        axios.post('http://localhost:5000/api/requests', {
+        axios.post(`${process.env.API_KEY}api/requests`, {
             "name": name,
             "number": mobileNumber,
             "status": 1,

@@ -8,11 +8,12 @@ module.exports = {
     },
 }
 
+
+
 module.exports = withImages()
 
 
 module.exports = withPlugins([
     [optimizedImages, {
     }],
-
 ]);
