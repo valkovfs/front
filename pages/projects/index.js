@@ -28,7 +28,12 @@ export default function index({requests}) {
 
 
     return (
-        <div>
+        <>
+            <Head>
+                <title>VALKOV.DEV</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+            </Head>
+            <>
             <Header
                 request={true}
                 signout={false}
@@ -41,7 +46,8 @@ export default function index({requests}) {
             <div>{requests.map(data => (
                 <div>{data.name}</div>
             ))}</div>
-        </div>
+            </>
+        </>
     )
 }
 

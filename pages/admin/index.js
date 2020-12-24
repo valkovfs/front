@@ -13,10 +13,17 @@ export default function index({ requests }) {
     const jwtToken = useSelector(state => state.jwtReducer[0])
     const setJwt = useDispatch()
     const [reqData, setRequestData] = useState([])
+    const [name, setName] = useState('')
+    const [number, setNumber] = useState('')
+    const [status, setStatus] = useState('0')
 
 
-    const getRequests = () => {
-        axios.get('http://localhost:5000/api/requests')
+    const sendRequests = () => {
+        axios.post('http://localhost:5000/api/requests', {
+            "name" : name,
+            "number" : number,
+            "status" : status
+        })
             .then((request) => {
                 console.log(jwtToken)
                 console.log(request)
@@ -32,7 +39,6 @@ export default function index({ requests }) {
     useEffect(() => {
 
         if(jwtToken) {
-            getRequests()
             console.log(jwtToken)
         } else {
             Router.push('/login')
@@ -51,9 +57,20 @@ export default function index({ requests }) {
                         <div className="container">
                             <Menu/>
                         </div>
-                    {Array(reqData).map(data => (
-                        data.name
-                    ))}
+                      <div>
+                          Number
+                        <input type="text"
+                        value={number}
+                        onChange={(e) => setNumber(e.target.value)}/>
+                    </div>
+                    <div>
+                        Name
+                        <input type="text"
+                               value={name}
+                               onChange={(e) => setName(e.target.value)}
+                        />
+                    </div>
+                    <div><button onClick={sendRequests}>Send</button></div>
                 </div>
                 : <CustomLoader/>
             }
