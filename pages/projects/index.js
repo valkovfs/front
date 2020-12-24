@@ -43,16 +43,28 @@ export default function index({requests}) {
             <div className="container">
                 <Menu/>
             </div>
+                <>
             <div>{requests.map(data => (
-                <div>{data.name}</div>
-            ))}</div>
+                !data.status ?
+                <div>
+                    <p>{data._id}</p>
+                    <p>{data.name}</p>
+                    <p>{data.description}</p>
+                    <p>{data.technologies}</p>
+                    <p>{data.pageLink}</p>
+                    <p>{data.sourceLink}</p>
+                </div> : <div></div>
+            ))}
+            </div>
+            </>
+
             </>
         </>
     )
 }
 
 export async function getServerSideProps() {
-    const res = await fetch('http://localhost:5000/api/requests')
+    const res = await fetch('http://localhost:5000/api/projects')
     const data = await res.json()
 
         console.log(data[1])

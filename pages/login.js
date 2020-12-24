@@ -19,7 +19,7 @@ export default function Login() {
 
     useEffect(() => {
         if (jwtToken) {
-            Router.push('/admin')
+            Router.push('/admin/projects')
         }
     }, [jwtToken])
 
@@ -40,7 +40,7 @@ export default function Login() {
                 console.log(data)
             await setJwt(jwtSave(data.data.token))
             await setJwtToken(data.data.token)
-            Router.push('/admin')
+            Router.push('/admin/projects')
 
         })
     }

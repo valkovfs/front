@@ -9,7 +9,7 @@ import {LoadableContext} from "next/dist/next-server/lib/loadable-context";
 import CustomLoader from "../../../components/Loader";
 import Menu from "../../../components/menu/Menu";
 
-export default function index({requests}) {
+export default function index({projects}) {
     const jwtToken = useSelector(state => state.jwtReducer[0]);
     const setJwt = useDispatch();
     const [reqData, setRequestData] = useState([]);
@@ -30,11 +30,10 @@ export default function index({requests}) {
             "technologies": technologies,
             "status": status
         })
-            .then((request) => {
-                console.log(jwtToken)
-                console.log(request)
-                setRequestData(request)
-            })
+    }
+
+    const deleteProject = (projectId) => {
+        axios.delete(`http://localhost:5000/api/projects/${projectId}`)
     }
 
     const signOut = async () => {
@@ -94,13 +93,23 @@ export default function index({requests}) {
                 <div>
                     <button onClick={sendRequests}>Send</button>
                 </div>
+
+                <div><p>Delete Project</p>
+                    {projects.map(project => (
+                        <div>
+                            <p>{project._id}</p>
+                            <button onClick={() => deleteProject(project._id)}> Delete Project</button>
+                        </div>
+
+                    ))}
+                </div>
             </div>
         </div>
     )
 }
 
 export async function getServerSideProps() {
-    const res = await fetch('http://localhost:5000/api/requests')
+    const res = await fetch('http://localhost:5000/api/projects')
     const data = await res.json()
 
     console.log(data[1])
