@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from "react-redux";
 import Router from 'next/router'
+import {useRouter} from "next/router";
 import Head from 'next/head'
 import axios from 'axios'
 import Header from "../../../components/header/Header";
@@ -9,6 +10,7 @@ import {LoadableContext} from "next/dist/next-server/lib/loadable-context";
 import CustomLoader from "../../../components/Loader";
 import Menu from "../../../components/menu/Menu";
 import api from '../../../api/api'
+import AdminProjects from "../../../components/project/adminProjects";
 
 export default function index({projects}) {
     const jwtToken = useSelector(state => state.jwtReducer[0]);
@@ -20,7 +22,6 @@ export default function index({projects}) {
     const [sourceLink, setSourceLink] = useState('');
     const [technologies, setTechnologies] = useState('');
     const [status, setStatus] = useState('0');
-
 
     const sendRequests = () => {
         api.post(`api/projects`, {
@@ -35,6 +36,7 @@ export default function index({projects}) {
 
     const deleteProject = (projectId) => {
         api.delete(`api/projects/${projectId}`)
+
     }
 
     const signOut = async () => {
@@ -43,16 +45,18 @@ export default function index({projects}) {
     }
     return (
         <div>
-            <div>
-                <Header
-                    request={true}
-                    signout={false}
-                    signin={true}
-                    func={signOut}
-                    home={true}/>
-                <div className="container">
-                    <Menu/>
-                </div>
+            <Header
+                request={true}
+                signout={false}
+                signin={true}
+                func={signOut}
+                home={true}/>
+            <div className="container">
+                <Menu/>
+            </div>
+            <AdminProjects projects={projects}/>
+           {/* <div>
+
                 <div>
                     Name
                     <input type="text"
@@ -96,15 +100,15 @@ export default function index({projects}) {
                 </div>
 
                 <div><p>Delete Project</p>
-                    {projects.map(project => (
+                    {projects? projects.map(project => (
                         <div>
                             <p>{project._id}</p>
                             <button onClick={() => deleteProject(project._id)}> Delete Project</button>
                         </div>
 
-                    ))}
+                    )): <></>}
                 </div>
-            </div>
+            </div>*/}
         </div>
     )
 }

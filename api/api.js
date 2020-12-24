@@ -4,6 +4,4 @@ import axios from "axios";
     baseURL: 'https://valkovdev.herokuapp.com/'
 })
 
-
-
 export default api

@@ -5,6 +5,7 @@ import '../styles/header.scss'
 import '../styles/burger.scss'
 import '../styles/menu.scss'
 import '../styles/signin.scss'
+import '../styles/adminProjectsTab.scss'
 
 
 function MyApp({ Component, pageProps }) {
