@@ -44,40 +44,6 @@ export default function Menu() {
                 </div>
             </div>
 
-            {/*<MenuBtn
-                state={menuState}
-                changeState={() => changeMenuState(openMenu(false))}
-                page={'/projects'}
-                pageName={<p>Projects</p>}
-                img={projects}
-                hideButton={false}
-            />
-            <MenuBtn
-                state={menuState}
-                changeState={() => changeMenuState(openMenu(false))}
-                page={'/about'}
-                pageName={<p>About Me</p>}
-                img={aboutme}
-                hideButton={false}
-            />
-            <MenuBtn
-                state={menuState}
-                changeState={() => changeMenuState(openMenu(false))}
-                page={'/contacts'}
-                pageName={<p>Contacts</p>}
-                img={contacts}
-                hideButton={false}
-            />
-            <MenuBtn
-                state={menuState}
-                changeState={() => changeMenuState(openMenu(false))}
-                page={'/login'}
-                pageName={<p>Sign-in</p>}
-                img={signin}
-                hideButton={false}
-                addStyle={'sign-in'}
-            />*/}
-
         </div>
     )
 }

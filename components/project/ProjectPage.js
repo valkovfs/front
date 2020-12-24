@@ -1,4 +1,7 @@
+
 export default function ProjectPage({id, name, description, img, technologies, sourceLink, pageLink, status}) {
+
+
     return (
         <div key={id} className="projects_content">
             <div>
