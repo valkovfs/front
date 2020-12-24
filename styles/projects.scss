@@ -1,0 +1,18 @@
+
+.projects {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+&_block {
+  margin: 15px;
+  display: flex;
+  width: 200px;
+  height: 120px;
+  border: #0799d3 3px solid;
+  border-radius: 10px;
+  &-button {
+    width: 60px;
+    height: 40px;
+  }
+}
+}

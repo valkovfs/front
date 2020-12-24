@@ -18,6 +18,7 @@ export default function index({projects}) {
     const [reqData, setRequestData] = useState([]);
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
+    const [image, setImage] = useState('');
     const [pageLink, setPageLink] = useState('');
     const [sourceLink, setSourceLink] = useState('');
     const [technologies, setTechnologies] = useState('');
@@ -36,6 +37,7 @@ export default function index({projects}) {
         api.post(`api/projects`, {
             "name": name,
             "description": description,
+            "img": image,
             "pageLink": pageLink,
             "sourceLink": sourceLink,
             "technologies": technologies,
@@ -64,7 +66,7 @@ export default function index({projects}) {
                 <Menu/>
             </div>
             <AdminProjects projects={projects}/>
-           {/* <div>
+           <div>
 
                 <div>
                     Name
@@ -80,6 +82,13 @@ export default function index({projects}) {
                            onChange={(e) => setDescription(e.target.value)}
                     />
                 </div>
+               <div>
+                   Img
+                   <input type="text"
+                          value={image}
+                          onChange={(e) => setImage(e.target.value)}
+                   />
+               </div>
                 <div>
                     Technolgies
                     <input type="text"
@@ -117,7 +126,7 @@ export default function index({projects}) {
 
                     )): <></>}
                 </div>
-            </div>*/}
+            </div>
         </div>
     )
 }

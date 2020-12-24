@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from "react-redux";
 import Router from 'next/router'
 import Head from 'next/head'
+import Link from "next/link";
 import axios from 'axios'
 import Header from "../../components/header/Header";
 import jwtClear from "../../redux/actionCreators/jwtClear";
@@ -17,7 +18,10 @@ export default function index({projects}) {
 
     useEffect(() => {
         if (projects) {
-            setIsLoading(1)
+            const timer = setTimeout(() => {
+                setIsLoading(true)
+            }, 1000);
+            return () => clearTimeout(timer);
         } else {
             setIsLoading(0)
         }
@@ -27,13 +31,6 @@ export default function index({projects}) {
         await setJwt(jwtClear())
         Router.push('/')
     }
-
-    const projectsBlock = () => (
-        <div></div>
-    )
-
-    console.log(process.env.API_KEY)
-
 
 
     return (
@@ -54,15 +51,13 @@ export default function index({projects}) {
             </div>
                 <>
                     {isLoading ?
-                        <div>{projects.map(data => (
+                        <div className="projects">{projects.map(data => (
                             data ?
-                                <div>
-                                    <p>{data._id}</p>
-                                    <p>{data.name}</p>
-                                    <p>{data.description}</p>
-                                    <p>{data.technologies}</p>
-                                    <p>{data.pageLink}</p>
-                                    <p>{data.sourceLink}</p>
+                                <div className="projects_block">
+                                    <p className="projects_block-name">{data.name}</p>
+                                    <p className="projects_block-description">{data.description}</p>
+                                    <Link href={`/project/[id]`} as={`project/${data._id}`}><button className="projects_block-button">View details</button></Link>
+
                                 </div> : <div></div>
                         ))}
                         </div> : <CustomLoader/>
@@ -75,7 +70,7 @@ export default function index({projects}) {
 }
 
 export async function getServerSideProps() {
-    const res = await fetch(`${process.env.API_KEY}api/projectsx`)
+    const res = await fetch(`${process.env.API_KEY}api/projects`)
     const data = await res.json()
 
     if (!data) {

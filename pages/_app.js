@@ -6,6 +6,7 @@ import '../styles/burger.scss'
 import '../styles/menu.scss'
 import '../styles/signin.scss'
 import '../styles/adminProjectsTab.scss'
+import '../styles/projects.scss'
 
 
 function MyApp({ Component, pageProps }) {
