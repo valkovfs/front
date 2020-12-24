@@ -9,9 +9,10 @@ import {LoadableContext} from "next/dist/next-server/lib/loadable-context";
 import CustomLoader from "../../components/Loader";
 import Menu from "../../components/menu/Menu";
 
-export default function index() {
+export default function index({ requests }) {
     const jwtToken = useSelector(state => state.jwtReducer[0])
     const setJwt = useDispatch()
+    const [reqData, setRequestData] = useState([])
 
 
     const getRequests = () => {
@@ -19,6 +20,7 @@ export default function index() {
             .then((request) => {
                 console.log(jwtToken)
                 console.log(request)
+                setRequestData(request)
             })
     }
 
@@ -49,9 +51,14 @@ export default function index() {
                         <div className="container">
                             <Menu/>
                         </div>
+                    {Array(reqData).map(data => (
+                        data.name
+                    ))}
                 </div>
                 : <CustomLoader/>
             }
         </div>
     )
 }
+
+
