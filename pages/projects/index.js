@@ -55,7 +55,7 @@ export default function index({projects}) {
                 <>
                     {isLoading ?
                         <div>{projects.map(data => (
-                            !data.status ?
+                            data ?
                                 <div>
                                     <p>{data._id}</p>
                                     <p>{data.name}</p>
