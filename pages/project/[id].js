@@ -17,6 +17,7 @@ const Project = ({project}) => {
             <Menu/>
             <Link href={`/projects/`}> Go back</Link>
             <ProjectPage
+                id = {id}
                 name={name}
                 description={description}
                 img={img}
