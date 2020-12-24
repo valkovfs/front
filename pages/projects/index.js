@@ -9,17 +9,24 @@ import {LoadableContext} from "next/dist/next-server/lib/loadable-context";
 import CustomLoader from "../../components/Loader";
 import Menu from "../../components/menu/Menu";
 
-export default function index({requests}) {
+export default function index({projects}) {
+    const [isLoading, setIsLoading] = useState(0)
     const jwtToken = useSelector(state => state.jwtReducer[0])
     const setJwt = useDispatch()
+
+
+    useEffect(() => {
+        if (projects) {
+            setIsLoading(1)
+        } else {
+            setIsLoading(0)
+        }
+    }, [projects])
 
     const signOut = async () => {
         await setJwt(jwtClear())
         Router.push('/')
     }
-    useEffect(() => {
-        console.log(requests)
-    })
 
     const projectsBlock = () => (
         <div></div>
@@ -46,18 +53,20 @@ export default function index({requests}) {
                 <Menu/>
             </div>
                 <>
-            <div>{requests.map(data => (
-                !data.status ?
-                <div>
-                    <p>{data._id}</p>
-                    <p>{data.name}</p>
-                    <p>{data.description}</p>
-                    <p>{data.technologies}</p>
-                    <p>{data.pageLink}</p>
-                    <p>{data.sourceLink}</p>
-                </div> : <div></div>
-            ))}
-            </div>
+                    {isLoading ?
+                        <div>{projects.map(data => (
+                            !data.status ?
+                                <div>
+                                    <p>{data._id}</p>
+                                    <p>{data.name}</p>
+                                    <p>{data.description}</p>
+                                    <p>{data.technologies}</p>
+                                    <p>{data.pageLink}</p>
+                                    <p>{data.sourceLink}</p>
+                                </div> : <div></div>
+                        ))}
+                        </div> : <CustomLoader/>
+                    }
             </>
 
             </>
@@ -66,14 +75,18 @@ export default function index({requests}) {
 }
 
 export async function getServerSideProps() {
-    const res = await fetch(`${process.env.API_KEY}api/projects`)
+    const res = await fetch(`${process.env.API_KEY}api/projectsx`)
     const data = await res.json()
 
-        console.log(data[1])
+    if (!data) {
+        return {
+            notFound: true,
+        }
+    }
 
     return {
         props: {
-            requests: data
+            projects: data
         }
     }
 }

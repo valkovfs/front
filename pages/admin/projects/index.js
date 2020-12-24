@@ -22,6 +22,15 @@ export default function index({projects}) {
     const [sourceLink, setSourceLink] = useState('');
     const [technologies, setTechnologies] = useState('');
     const [status, setStatus] = useState('0');
+    const [isLoading, setIsLoading] = useState(0)
+
+    useEffect(() => {
+        if (projects) {
+            setIsLoading(1)
+        } else {
+            setIsLoading(0)
+        }
+    }, [projects])
 
     const sendRequests = () => {
         api.post(`api/projects`, {
