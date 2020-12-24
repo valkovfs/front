@@ -8,6 +8,7 @@ import jwtClear from "../../../redux/actionCreators/jwtClear";
 import {LoadableContext} from "next/dist/next-server/lib/loadable-context";
 import CustomLoader from "../../../components/Loader";
 import Menu from "../../../components/menu/Menu";
+import api from '../../../api/api'
 
 export default function index({projects}) {
     const jwtToken = useSelector(state => state.jwtReducer[0]);
@@ -22,7 +23,7 @@ export default function index({projects}) {
 
 
     const sendRequests = () => {
-        axios.post(`${process.env.API_KEY}api/projects`, {
+        api.post(`api/projects`, {
             "name": name,
             "description": description,
             "pageLink": pageLink,
@@ -33,7 +34,7 @@ export default function index({projects}) {
     }
 
     const deleteProject = (projectId) => {
-        axios.delete(`${process.env.API_KEY}api/projects${projectId}`)
+        api.delete(`api/projects/${projectId}`)
     }
 
     const signOut = async () => {

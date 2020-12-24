@@ -8,6 +8,11 @@ module.exports = {
     },
 }
 
+module.exports = {
+    env: {
+        baseURL: 'https://valkovdev.herokuapp.com'
+    }
+}
 
 
 module.exports = withImages()

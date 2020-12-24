@@ -8,6 +8,7 @@ import jwtSave from "../redux/actionCreators/jwtActionCreator";
 import Menu from "../components/menu/Menu";
 import CustomLoader from "../components/Loader";
 import dev from '../styles/img/dev.png'
+import api from '../api/api'
 
 export default function Login() {
     const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +33,7 @@ export default function Login() {
     });
 
     const checkLogin = () => {
-        axios.post(`${process.env.API_KEY}/login/sign_in`, {
+        api.post(`https://valkovdev.herokuapp.com/auth/sign_in`, {
             "email": email,
             "password": password
         }).then(async (data) => {

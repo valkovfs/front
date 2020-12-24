@@ -19,7 +19,7 @@ export default function index({ requests }) {
 
 
     const sendRequests = () => {
-        axios.post(`${process.env.API_KEY}api/requests`, {
+        axios.post('http://localhost:5000/api/requests', {
             "name" : name,
             "number" : number,
             "status" : status
