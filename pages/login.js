@@ -32,7 +32,7 @@ export default function Login() {
     });
 
     const checkLogin = () => {
-        axios.post(`${process.env.API_KEY}auth/sign_in`, {
+        axios.post(`${process.env.API_KEY}/login/sign_in`, {
             "email": email,
             "password": password
         }).then(async (data) => {
