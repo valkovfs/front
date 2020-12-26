@@ -24,7 +24,7 @@ export default function Menu() {
                 <div
                     onClick={() => Router.push('/')} className="menu_item-link">
                     Home
-                    <img className="menu_item-img" src={aboutme} alt="Home" />
+                    {/*<img className="menu_item-img" src={aboutme} alt="Home" />*/}
                 </div>
             </div>
             <div  hidden={false} className={!menuState ? "menu_item" : `menu_item-hide `}
@@ -32,7 +32,7 @@ export default function Menu() {
                 <div
                     onClick={() => Router.push('/projects')} className="menu_item-link">
                     Projects
-                    <img className="menu_item-img" src={projects} alt="Home" />
+                    {/*<img className="menu_item-img" src={projects} alt="Home" />*/}
                 </div>
             </div>
             <div  hidden={false} className={!menuState ? "menu_item" : `menu_item-hide `}
@@ -40,7 +40,7 @@ export default function Menu() {
                 <div
                     onClick={() => Router.push('/login')} className="menu_item-link">
                     Login
-                    <img className="menu_item-img" src={signin} alt="Home" />
+                    {/*<img className="menu_item-img" src={signin} alt="Home" />*/}
                 </div>
             </div>
 
