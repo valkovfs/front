@@ -33,7 +33,7 @@ export default function Login() {
     });
 
     const checkLogin = () => {
-        api.post(`https://valkovdev.herokuapp.com/auth/sign_in`, {
+        api.post(`http://back-env.eba-mur2bxyw.eu-central-1.elasticbeanstalk.com/auth/sign_in`, {
             "email": email,
             "password": password
         }).then(async (data) => {
