@@ -33,7 +33,7 @@ export default function Login() {
     });
 
     const checkLogin = () => {
-        api.post(`auth/sign_in`, {
+        api.post(`/auth/sign_in`, {
             "email": email,
             "password": password
         }).then(async (data) => {
