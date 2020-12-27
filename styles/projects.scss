@@ -1,4 +1,16 @@
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 h3, h2 {
+  animation: ease-out 1s ;
   color: dimgray;
 }
 
@@ -32,13 +44,13 @@ h3, h2 {
   }
 
   &_image {
+    animation: 1s ease-in .5s 1 slideFromLeft;
     min-width: 400px;
     width: 45vw;
     border-radius: 15px;
     margin-right: 5vw;
     -webkit-box-shadow: 0px 0px 25px -1px rgba(0, 0, 0, 0.5);
     box-shadow: 0px 0px 25px -1px rgba(0, 0, 0, 0.5);
-
     transition: ease-in-out 0.7s;
   }
 
