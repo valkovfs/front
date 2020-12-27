@@ -3,10 +3,21 @@ import Head from 'next/head'
 import Header from "../components/header/Header";
 import styles from '../styles/Home.module.css'
 import axios from 'axios'
+import api from "../api/api";
 
 export default function Register() {
+    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+
+    const resgiterAcc = () => {
+    api.post('auth/register', {
+        "fullName": name,
+        "email": email,
+        "password": password
+    }).then(data => console.log(data))
+    }
 
     return (
         <div>
@@ -18,8 +29,9 @@ export default function Register() {
             <div className="request">
 
                 <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <input type="text" value={name} onChange={(e) => setName(e.target.value)}/>
                 <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                <button onClick={console.log('hi')}> Login</button>
+                <button onClick={() => resgiterAcc()}> Login</button>
 
             </div>
 
