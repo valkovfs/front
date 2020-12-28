@@ -1,7 +1,7 @@
 import axios from "axios";
 
  const api = axios.create({
-    baseURL: 'http://back-env.eba-mur2bxyw.eu-central-1.elasticbeanstalk.com/'
+    baseURL: 'http://159.89.215.95:5000/'
 })
 
 export default api
