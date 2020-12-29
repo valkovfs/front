@@ -54,9 +54,12 @@ export default function index({projects}) {
                         <div className="projects">{projects.map(data => (
                             data ?
                                 <div className="projects_block">
-                                    <p className="projects_block-name">{data.name}</p>
-                                    <p className="projects_block-description">{data.description}</p>
-                                    <Link prefetch={true} href={`/project/[id]`} as={`project/${data._id}`}><button className="projects_block-button">View details</button></Link>
+                                    <img src={data.img} className="projects_block-img" alt="Screen"/>
+                                    <div className="projects_block-info">
+                                        <p className="projects_block-name">{data.name}</p>
+
+                                        <Link href={`/project/[id]`} as={`project/${data._id}`}><button className="projects_block-button">Details</button></Link>
+                                    </div>
                                 </div> : <></>
                         ))}
                         </div> : <CustomLoader/>

@@ -41,8 +41,9 @@ export default function Signin() {
                 console.log(data)
             await setJwt(jwtSave(data.data.token))
             await setJwtToken(data.data.token)
+            setIsLoading(true)
             Router.push('/admin/projects')
-
+            setIsLoading(false)
         })
     }
 
@@ -66,7 +67,7 @@ export default function Signin() {
 
                                     <input className="signin_inputs-input" type="text" placeholder="e-mail" value={email} onChange={(e) => setEmail(e.target.value)}/>
                                     <input className="signin_inputs-input" type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                                    <div className="signin_inputs-button" onClick={checkLogin}> Sign-in</div>
+                                    <div className="signin_inputs-button" onClick={checkLogin}>Sign-in</div>
                                 </div>
 
                             </div>

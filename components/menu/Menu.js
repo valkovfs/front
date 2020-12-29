@@ -9,27 +9,31 @@ import contacts from '../../styles/img/contacts.svg'
 import aboutme from '../../styles/img/about-me.svg'
 
 
-
-
 export default function Menu() {
-    function RedirectPage(page){
-      return Router.push(page)
+    function RedirectPage(page) {
+        return Router.push(page)
     }
+
     const menuState = useSelector(state => state.menuReducer)
     const changeMenuState = useDispatch()
     return (
         <div className={menuState ? "menu_open" : "menu_close"}>
-            <div  hidden={false} className={!menuState ? "menu_item" : `menu_item-hide `}
-                  onClick={() => changeMenuState(openMenu(false))} >
-                <Link href={'/'} className="menu_item-link">Home</Link>
+            <div hidden={false} className={!menuState ? "menu_item" : `menu_item-hide `}>
+                <Link href={'/'}><a
+                    className="menu_item-link"
+                    onClick={() => changeMenuState(openMenu(false))}
+                >Home</a></Link>
             </div>
-            <div  hidden={false} className={!menuState ? "menu_item" : `menu_item-hide `}
-                  onClick={() => changeMenuState(openMenu(false))} >
-                <Link href={'/projects'} className="menu_item-link">Projects</Link>
+            <div hidden={false} className={!menuState ? "menu_item" : `menu_item-hide `}>
+                <Link href={'/projects'}><a
+                    className="menu_item-link" onClick={() => changeMenuState(openMenu(false))}
+                >Projects</a></Link>
             </div>
-            <div  hidden={false} className={!menuState ? "menu_item" : `menu_item-hide `}
-                  onClick={() => changeMenuState(openMenu(false))} >
-                <Link href={'/login'} className="menu_item-link">Sign-in</Link>
+            <div hidden={false} className={!menuState ? "menu_item" : `menu_item-hide `}>
+                <Link href={'/signin'}><a
+                    className="menu_item-link"
+                    onClick={() => changeMenuState(openMenu(false))}
+                >Sign-in</a></Link>
             </div>
         </div>
     )

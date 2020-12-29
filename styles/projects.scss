@@ -1,11 +1,22 @@
 @keyframes slideFromLeft {
   0% {
-    transform: translateX(-100%);
     opacity: 0;
+    transform: translateX(50%);
   }
   100% {
-    transform: translateX(0);
     opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -19,6 +30,15 @@ h3, h2 {
   justify-content: center;
   align-items: center;
 
+  &_name, &_description, &_technologies, &_links {
+    animation: 1.5s ease-out 0s 1 slideFromLeft;
+  }
+
+  &_goback {
+    position: fixed;
+    left: 100px;
+    top: 100px;
+  }
 
   &_content {
     padding-top: 5vh;
@@ -30,44 +50,70 @@ h3, h2 {
   }
 
   &_block {
+    animation: 1.5s ease-out 0s 1 slideFromTop;
     margin: 15px;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     width: 200px;
-    height: 120px;
-    border: #0799d3 3px solid;
+    background-color: #eaeaea;
+    -webkit-box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.2);
     border-radius: 10px;
 
+    &-info {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+    }
+    &-img {
+      width: 200px;
+      border-radius: 10px;
+      padding: 5px;
+    }
+
     &-button {
-      width: 60px;
+      margin-top: 10px;
+      width: 80px;
       height: 40px;
+      background-color: #0799d3;
+      transition: 1s ease-in;
+      border: none;
+      border-radius: 10px;
+      -webkit-box-shadow: 0px 0px 10px -2px rgba(7,153,211,1);
+      box-shadow: 0px 0px 10px -2px rgba(7,153,211,1);
+    }
+    &-button:hover {
+      background-color: #00AF64;
+      transition: 1s ease-in;
+      -webkit-box-shadow: 0px 0px 25px -1px rgba(0,175,100,1);
+      box-shadow: 0px 0px 10px -2px rgba(0,175,100,1);
+      color: #fff;
+
     }
   }
 
   &_image {
-    animation: 1s ease-in .5s 1 slideFromLeft;
+    animation: 1.5s ease-out 0s 1 slideFromTop;
     min-width: 400px;
     width: 45vw;
     border-radius: 15px;
     margin-right: 5vw;
-    -webkit-box-shadow: 0px 0px 25px -1px rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 0px 25px -1px rgba(0, 0, 0, 0.5);
-    transition: ease-in-out 0.7s;
-  }
-
-  &_image:hover {
-    width: 60vw;
-    transition: ease-out 0.7s;
-    margin-left: -5vw;
+    -webkit-box-shadow: 0px 0px 25px -1px rgba(7,153,211,1);
+    box-shadow: 0px 0px 10px -1px rgba(7,153,211,1);
   }
 
 
   &_links {
+
     display: flex;
     flex-direction: column;
   }
 
   &_link {
     color: #4284D3;
+    width: 100px;
     margin-top: 15px;
     font-weight: 800;
     transition: ease-out .5s;

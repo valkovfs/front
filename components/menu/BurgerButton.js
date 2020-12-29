@@ -10,14 +10,14 @@ export default function BurgerButton({menuState, hideMenu, func}) {
         <div className="menu">
             {!menuState
                 ? <label hidden={hideMenu} onClick={func} className={!menuState ?"burger" : "burger-opened"}>
-                    <span className="bar top"></span>
-                    <span className="bar middle"></span>
-                    <span className="bar bottom"></span>
+                    <span className="bar top"/>
+                    <span className="bar middle"/>
+                    <span className="bar bottom"/>
                 </label>
                 : <label hidden={hideMenu} onClick={func} className={!menuState ?"burger" : "burger-opened"}>
-                    <span className="bar top-tr"></span>
-                    <span className="bar middle-tr"></span>
-                    <span className="bar bottom-tr"></span>
+                    <span className="bar top-tr"/>
+                    <span className="bar middle-tr"/>
+                    <span className="bar bottom-tr"/>
                 </label>
             }
         </div>

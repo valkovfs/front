@@ -26,20 +26,21 @@ const Project = ({project}) => {
         <>
             <Header/>
             <Menu/>
-            {isLoading ?
                 <>
-                    <Link href={`/projects/`}> Go back</Link>
-                    <ProjectPage
-                        id={id}
-                        name={name}
-                        description={description}
-                        img={img}
-                        technologies={technologies}
-                        sourceLink={sourceLink}
-                        pageLink={pageLink}
-                    />
+
+                    {isLoading
+                        ? <ProjectPage
+                            id={id}
+                            name={name}
+                            description={description}
+                            img={img}
+                            technologies={technologies}
+                            sourceLink={sourceLink}
+                            pageLink={pageLink}
+                        />
+                    : <CustomLoader/>}
+
                 </>
-                : <CustomLoader/>}
 
         </>
     )
