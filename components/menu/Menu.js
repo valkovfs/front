@@ -1,5 +1,6 @@
 import {useSelector, useDispatch} from "react-redux";
 import Link from 'next/link'
+import Image from 'next/image'
 import Router from 'next/router'
 import MenuBtn from "./MenuBtn";
 import openMenu from "../../redux/actionCreators/menuActionCreator";
@@ -29,7 +30,7 @@ export default function Menu() {
             </div>
             <div  hidden={false} className={!menuState ? "menu_item" : `menu_item-hide `}
                   onClick={() => changeMenuState(openMenu(false))} >
-                <Link href={'/login'} prefetch={true} className="menu_item-link">Sign-in</Link>
+                <Link href={'/signin'} prefetch={true} className="menu_item-link">Sign-in</Link>
             </div>
         </div>
     )
