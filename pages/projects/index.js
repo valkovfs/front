@@ -57,8 +57,7 @@ export default function index({projects}) {
                                     <p className="projects_block-name">{data.name}</p>
                                     <p className="projects_block-description">{data.description}</p>
                                     <Link prefetch={true} href={`/project/[id]`} as={`project/${data._id}`}><button className="projects_block-button">View details</button></Link>
-
-                                </div> : <div></div>
+                                </div> : <></>
                         ))}
                         </div> : <CustomLoader/>
                     }
