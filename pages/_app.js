@@ -7,6 +7,7 @@ import '../styles/menu.scss'
 import '../styles/signin.scss'
 import '../styles/adminProjectsTab.scss'
 import '../styles/projects.scss'
+import App from "next/app";
 
 
 function MyApp({ Component, pageProps }) {
@@ -16,6 +17,13 @@ function MyApp({ Component, pageProps }) {
     <Component {...pageProps} />
   </Provider>
   )
+}
+
+MyApp.getInitialProps = async (appContext) => {
+  const appProps = await App.getInitialProps(appContext)
+  return {
+    ...appProps
+  }
 }
 
 export default MyApp
