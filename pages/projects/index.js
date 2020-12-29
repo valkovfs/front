@@ -56,7 +56,7 @@ export default function index({projects}) {
                                 <div className="projects_block">
                                     <p className="projects_block-name">{data.name}</p>
                                     <p className="projects_block-description">{data.description}</p>
-                                    <Link href={`/project/[id]`} as={`project/${data._id}`}><button className="projects_block-button">View details</button></Link>
+                                    <Link prefetch={true} href={`/project/[id]`} as={`project/${data._id}`}><button className="projects_block-button">View details</button></Link>
 
                                 </div> : <div></div>
                         ))}
@@ -69,7 +69,7 @@ export default function index({projects}) {
     )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     const res = await fetch(`${process.env.API_KEY}api/projects`)
     const data = await res.json()
 
