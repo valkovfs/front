@@ -81,3 +81,17 @@
   display: flex;
 }
 
+@media (max-width: 800px) {
+  .burger {
+
+    transition: 0.6s ease-out;
+    transition-delay: 0.45s;
+    &-opened {
+      right: 32vw;
+
+      transition: 0.5s ease-out;
+      transition-delay: 0.5s;
+    }
+  }
+}
+
