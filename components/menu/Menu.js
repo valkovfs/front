@@ -21,28 +21,16 @@ export default function Menu() {
         <div className={menuState ? "menu_open" : "menu_close"}>
             <div  hidden={false} className={!menuState ? "menu_item" : `menu_item-hide `}
                   onClick={() => changeMenuState(openMenu(false))} >
-                <div
-                    onClick={() => Router.push('/')} className="menu_item-link">
-                    Home
-                    {/*<img className="menu_item-img" src={aboutme} alt="Home" />*/}
-                </div>
+                <Link href={'/'} className="menu_item-link">Home</Link>
             </div>
             <div  hidden={false} className={!menuState ? "menu_item" : `menu_item-hide `}
                   onClick={() => changeMenuState(openMenu(false))} >
-                <label>
-                    <img className="menu_item-img" src={aboutme} alt="Home" />
                 <Link href={'/projects'} className="menu_item-link">Projects</Link>
-                </label>
             </div>
             <div  hidden={false} className={!menuState ? "menu_item" : `menu_item-hide `}
                   onClick={() => changeMenuState(openMenu(false))} >
-                <div
-                    onClick={() => Router.push('/login')} className="menu_item-link">
-                    Login
-                    {/*<img className="menu_item-img" src={signin} alt="Home" />*/}
-                </div>
+                <Link href={'/login'} className="menu_item-link">Sign-in</Link>
             </div>
-
         </div>
     )
 }

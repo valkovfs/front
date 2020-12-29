@@ -10,7 +10,7 @@ import CustomLoader from "../components/Loader";
 import dev from '../styles/img/dev.png'
 import api from '../api/api'
 
-export default function Login() {
+export default function Signin() {
     const [isLoading, setIsLoading] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
