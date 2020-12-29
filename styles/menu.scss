@@ -101,6 +101,9 @@
   .menu {
     &_open {
       width: 30vw;
+
+      transition: width 0.6s ease-out;
+      transition-delay: 0.42s;
     }
   }
 }
