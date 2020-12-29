@@ -43,7 +43,6 @@ export default function Signin() {
             await setJwtToken(data.data.token)
             setIsLoading(true)
             Router.push('/admin/projects')
-            setIsLoading(false)
         })
     }
 
