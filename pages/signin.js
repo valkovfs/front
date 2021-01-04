@@ -9,13 +9,17 @@ import Menu from "../components/menu/Menu";
 import CustomLoader from "../components/Loader";
 import dev from '../styles/img/dev.png'
 import api from '../api/api'
+import Image from 'next/image'
+import developer from '../public/img/2842680.png'
 
 export default function Signin() {
     const [isLoading, setIsLoading] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [jwtToken, setJwtToken] = useState('');
-    const [img , setImg] = useState()
+    const [img, setImg] = useState()
+    const [statusOk, setStatusOk] = useState(false)
+    const [statusBad, setStatusBad] = useState(false)
     const setJwt = useDispatch();
 
     useEffect(() => {
@@ -36,14 +40,18 @@ export default function Signin() {
         api.post(`/auth/sign_in`, {
             "email": email,
             "password": password
-        }).then(async (data) => {
-            if (data && data.data.token)
-                console.log(data)
-            await setJwt(jwtSave(data.data.token))
-            await setJwtToken(data.data.token)
-            setIsLoading(true)
-            Router.push('/admin/projects')
+        }).then((data) => {
+            console.log(data)
+            if (data.status === 200) {
+                setStatusOk(true)
+            } else {
+                setStatusBad(true)
+            }
+            setJwt(jwtSave(data.data.token))
+            setJwtToken(data.data.token)
+           /* Router.push('/admin/projects')*/
         })
+        setIsLoading(false)
     }
 
     return (
@@ -61,20 +69,25 @@ export default function Signin() {
                         home={true}
                     />
 
-                            <div className="signin">
-                                <div className="signin_inputs">
-
-                                    <input className="signin_inputs-input" type="text" placeholder="e-mail" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                                    <input className="signin_inputs-input" type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                                    <div className="signin_inputs-button" onClick={checkLogin}>Sign-in</div>
-                                </div>
-
+                        <div className="signin">
+                            <div className="signin_inputs">
+                                1
+                                {statusBad ? <div>Wrong Login or Password</div> : <></>}
+                                <input className="signin_inputs-input" type="text" placeholder="e-mail" value={email}
+                                       onChange={(e) => setEmail(e.target.value)}/>
+                                <input className="signin_inputs-input" type="password" placeholder="password"
+                                       value={password} onChange={(e) => setPassword(e.target.value)}/>
+                                <div className="signin_inputs-button" onClick={checkLogin}>Sign-in</div>
                             </div>
-                            <Menu/>
-                            <img className="signin_img" src={dev} alt="Developer"/>
+
+                        </div>
+                        <Menu/>
+                        <div className="signin_img">
+                            <Image src={developer} width={500} height={500}/>
+                        </div>
                     </div>
                     :
-                    <CustomLoader />
+                    <CustomLoader/>
                 }
             </>
         </div>

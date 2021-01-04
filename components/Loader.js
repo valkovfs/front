@@ -1,4 +1,3 @@
-
 import Loader from 'react-loader-spinner'
 
 export default function CustomLoader() {

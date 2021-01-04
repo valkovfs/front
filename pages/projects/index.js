@@ -1,12 +1,10 @@
 import {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from "react-redux";
 import Router from 'next/router'
-import Head from 'next/head'
+import Head from 'next/head';
 import Link from "next/link";
-import axios from 'axios'
 import Header from "../../components/header/Header";
 import jwtClear from "../../redux/actionCreators/jwtClear";
-import {LoadableContext} from "next/dist/next-server/lib/loadable-context";
 import CustomLoader from "../../components/Loader";
 import Menu from "../../components/menu/Menu";
 

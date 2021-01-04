@@ -10,10 +10,6 @@ import aboutme from '../../styles/img/about-me.svg'
 
 
 export default function Menu() {
-    function RedirectPage(page) {
-        return Router.push(page)
-    }
-
     const menuState = useSelector(state => state.menuReducer)
     const changeMenuState = useDispatch()
     return (
