@@ -13,7 +13,7 @@ import Image from 'next/image'
 import developer from '../public/img/2842680.png'
 
 export default function Signin() {
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [jwtToken, setJwtToken] = useState('');
@@ -22,21 +22,19 @@ export default function Signin() {
     const [statusBad, setStatusBad] = useState(false)
     const setJwt = useDispatch();
 
-/*    useEffect(() => {
+    useEffect(() => {
         if (jwtToken) {
             Router.push('/admin/projects')
         }
-    }, [jwtToken])*/
+    }, [jwtToken])
 
 
-/*
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoading(true)
         }, 500);
         return () => clearTimeout(timer);
     });
-*/
 
     const checkLogin = () => {
         api.post(`/auth/sign_in`, {
@@ -45,15 +43,15 @@ export default function Signin() {
         }).then((data) => {
             console.log(data)
             if (data.status === 200) {
-                setStatusOk(true)
-            } else {
-                setStatusBad(true)
-            }/*
+                setIsLoading(false)
+            }
             setJwt(jwtSave(data.data.token))
-            setJwtToken(data.data.token)*/
-           /* Router.push('/admin/projects')*/
-        })/*
-        setIsLoading(false)*/
+            setJwtToken(data.data.token)
+        }).catch((err) => {
+            if (err.response.status === 401) {
+                setStatusBad(true)
+            }
+        })
     }
 
     return (
@@ -73,8 +71,7 @@ export default function Signin() {
 
                         <div className="signin">
                             <div className="signin_inputs">
-                                1
-                                {statusBad ? <div>Wrong Login or Password</div> : <></>}
+                                {statusBad ? <div className="response_error">Wrong E-mail or Password</div> : <></>}
                                 <input className="signin_inputs-input" type="text" placeholder="e-mail" value={email}
                                        onChange={(e) => setEmail(e.target.value)}/>
                                 <input className="signin_inputs-input" type="password" placeholder="password"
