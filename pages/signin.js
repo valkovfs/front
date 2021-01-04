@@ -22,19 +22,21 @@ export default function Signin() {
     const [statusBad, setStatusBad] = useState(false)
     const setJwt = useDispatch();
 
-    useEffect(() => {
+/*    useEffect(() => {
         if (jwtToken) {
             Router.push('/admin/projects')
         }
-    }, [jwtToken])
+    }, [jwtToken])*/
 
 
+/*
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoading(true)
         }, 500);
         return () => clearTimeout(timer);
     });
+*/
 
     const checkLogin = () => {
         api.post(`/auth/sign_in`, {
@@ -46,12 +48,12 @@ export default function Signin() {
                 setStatusOk(true)
             } else {
                 setStatusBad(true)
-            }
+            }/*
             setJwt(jwtSave(data.data.token))
-            setJwtToken(data.data.token)
+            setJwtToken(data.data.token)*/
            /* Router.push('/admin/projects')*/
-        })
-        setIsLoading(false)
+        })/*
+        setIsLoading(false)*/
     }
 
     return (
