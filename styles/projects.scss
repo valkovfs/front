@@ -29,6 +29,7 @@ h3, h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 
   &_name, &_description, &_technologies, &_links {
     animation: 1.5s ease-out 0s 1 slideFromLeft;

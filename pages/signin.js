@@ -71,7 +71,7 @@ export default function Signin() {
 
                         <div className="signin">
                             <div className="signin_inputs">
-                                {statusBad ? <div className="response_error">Wrong E-mail or Password</div> : <></>}
+                                <div className={statusBad ? "response_error" : "response_ok"}>Wrong E-mail or Password</div>
                                 <input className="signin_inputs-input" type="text" placeholder="e-mail" value={email}
                                        onChange={(e) => setEmail(e.target.value)}/>
                                 <input className="signin_inputs-input" type="password" placeholder="password"
