@@ -1,0 +1,30 @@
+.Typist .Cursor {
+  display: inline-block;
+  &.Cursor--blinking {
+    opacity: 1;
+    animation: blink 1s linear infinite; }
+}
+
+
+@keyframes blink {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.typing-text {
+  margin-top: 50px;
+  color: #0799d3;
+  height: 120px;
+  font-size: 30px;
+  text-align: center;
+  font-weight: 800;
+  transition: 0.5s;
+}
+
+.typing-text:hover {
+  color: #00AF64;
+  transition: 0.5s;
+}

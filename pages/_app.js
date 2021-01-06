@@ -7,6 +7,7 @@ import '../styles/menu.scss'
 import '../styles/signin.scss'
 import '../styles/adminProjectsTab.scss'
 import '../styles/projects.scss'
+import '../styles/typing-text.scss'
 
 
 function MyApp({ Component, pageProps }) {

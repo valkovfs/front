@@ -7,6 +7,8 @@ import Main from "../components/main/Main";
 import Menu from "../components/menu/Menu";
 import Loader from 'react-loader-spinner'
 import CustomLoader from "../components/Loader";
+import TypingText from "../components/main/TypingText";
+
 
 
 export default function Home() {
@@ -34,7 +36,8 @@ export default function Home() {
                     />
 
                         <div className="container">
-                            git s
+
+
                             <Main/>
 
                             <Menu/>
