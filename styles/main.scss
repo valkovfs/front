@@ -1,0 +1,36 @@
+@keyframes ShowAvatar {
+  from {
+    opacity: 0;
+   }
+  to {
+    opacity: 1;
+  }
+
+}
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+}
+
+.main_block {
+  -webkit-animation: 1.5s ease-in 3.5s 1 backwards ShowAvatar;
+  animation: 1.5s ease-in 3.5s 1 backwards ShowAvatar;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00AF64;
+  border-radius: 50%;
+  width: 350px;
+  height: 350px;
+  margin: 50px;
+}
+
+.main_img {
+  border: #00AF64;
+  width: 250px;
+  height: 250px;
+}
