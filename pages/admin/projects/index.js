@@ -33,6 +33,12 @@ export default function index({projects}) {
         }
     }, [projects])
 
+    useEffect(() => {
+        if (!localStorage.getItem('token')) {
+            Router.push('/signin')
+        }
+    }, [])
+
     const sendRequests = () => {
         api.post(`api/projects`, {
             "name": name,
