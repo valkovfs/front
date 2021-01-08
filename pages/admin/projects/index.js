@@ -65,8 +65,8 @@ export default function index({projects}) {
     }
 
     const signOut = async () => {
-        await setJwt(jwtClear())
-        Router.push('/')
+        localStorage.removeItem('token')
+        Router.push('/signin')
     }
     return (
         <div>
@@ -140,6 +140,7 @@ export default function index({projects}) {
 
                    <div>
                        <button className="project_add-button" onClick={sendRequests}>Send</button>
+                       <button className="project_add-button" onClick={signOut}>Logout</button>
                    </div></div>
 
 

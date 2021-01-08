@@ -44,6 +44,7 @@ export default function Signin(key, value) {
             console.log(data)
             if (data.status === 200) {
                 setIsLoading(false)
+                Router.push('/admin/projects')
             }
             setJwt(jwtSave(data.data.token))
             setJwtToken(data.data.token)
