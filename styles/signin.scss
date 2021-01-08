@@ -29,7 +29,7 @@
     background-color: #eaeaea;;
 
     &-input {
-      transition: 0.6s ease-out;
+      transition: 0.3s ease-out;
       margin-bottom: 20px;
       min-width: 200px;
       width: 20vw;
@@ -41,6 +41,9 @@
       font-size: 15px;
       color: dimgrey;
       font-bold: 1000;
+      &.error {
+        border: 2px solid lightcoral;
+      }
     }
 
     &-input:focus {

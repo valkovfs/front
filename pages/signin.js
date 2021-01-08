@@ -12,7 +12,7 @@ import api from '../api/api'
 import Image from 'next/image'
 import developer from '../public/img/2842680.png'
 
-export default function Signin() {
+export default function Signin(key, value) {
     const [isLoading, setIsLoading] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -47,6 +47,7 @@ export default function Signin() {
             }
             setJwt(jwtSave(data.data.token))
             setJwtToken(data.data.token)
+            localStorage.setItem('token', data.data.token)
         }).catch((err) => {
             if (err.response.status === 401) {
                 setStatusBad(true)
@@ -72,9 +73,9 @@ export default function Signin() {
                         <div className="signin">
                             <div className="signin_inputs">
                                 <div className={statusBad ? "response_error" : "response_ok"}>Wrong E-mail or Password</div>
-                                <input className="signin_inputs-input" type="text" placeholder="e-mail" value={email}
+                                <input className={!statusBad ? "signin_inputs-input" : "signin_inputs-input error" } type="text" placeholder="e-mail" value={email}
                                        onChange={(e) => setEmail(e.target.value)}/>
-                                <input className="signin_inputs-input" type="password" placeholder="password"
+                                <input className={!statusBad ? "signin_inputs-input" : "signin_inputs-input error" }  type="password" placeholder="password"
                                        value={password} onChange={(e) => setPassword(e.target.value)}/>
                                 <div className="signin_inputs-button" onClick={checkLogin}>Sign-in</div>
                             </div>

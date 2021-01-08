@@ -42,12 +42,20 @@ export default function index({projects}) {
             "sourceLink": sourceLink,
             "technologies": technologies,
             "status": status
-        })
+        }).then(
+            Router.push('/admin/projects')
+        )
+        setName('')
+        setDescription('')
+        setImage('')
+        setPageLink('')
+        setSourceLink('')
+        setTechnologies('')
     }
 
     const deleteProject = (projectId) => {
         api.delete(`api/projects/${projectId}`)
-
+        Router.push('/admin/projects')
     }
 
     const signOut = async () => {
@@ -65,67 +73,71 @@ export default function index({projects}) {
             <div className="container">
                 <Menu/>
             </div>
-            <AdminProjects projects={projects}/>
-           <div>
+           <div className="project_container">
+               <div className="project_table">
+                   {projects? projects.map(project => (
+                       <div className="project_table-row" key={project._id} >
+                           <div className="project_table-name">{project.name}</div>
+                           <div className="project_table-id">{project._id}</div>
+                           <button className="project_table-button" onClick={() => deleteProject(project._id)}>Delete</button>
+                       </div>
 
-                <div>
-                    Name
-                    <input type="text"
-                           value={name}
-                           onChange={(e) => setName(e.target.value)}
-                    />
-                </div>
-                <div>
-                    Description
-                    <input type="text"
-                           value={description}
-                           onChange={(e) => setDescription(e.target.value)}
-                    />
-                </div>
-               <div>
-                   Img
-                   <input type="text"
-                          value={image}
-                          onChange={(e) => setImage(e.target.value)}
-                   />
+                   )): <></>}
                </div>
-                <div>
-                    Technolgies
-                    <input type="text"
-                           value={technologies}
-                           onChange={(e) => setTechnologies(e.target.value)}
-                    />
-                </div>
-                <div>
-                    Project Link
-                    <input type="text"
-                           value={pageLink}
-                           onChange={(e) => setPageLink(e.target.value)}
-                    />
-                </div>
-                <div>
-                    Source Code Link
-                    <input type="text"
-                           value={sourceLink}
-                           onChange={(e) => setSourceLink(e.target.value)}
-                    />
-                </div>
+               <div className="project_add"><div>
+                   <div className="project_input">
+                       Name
+                       <input type="text"
+                              value={name}
+                              onChange={(e) => setName(e.target.value)}
+                       />
+                   </div>
+
+               </div>
+                   <div className="project_input">
+                       Description
+                       <input type="text"
+                              value={description}
+                              onChange={(e) => setDescription(e.target.value)}
+                       />
+                   </div>
+                   <div className="project_input">
+                       Img
+                       <input type="text"
+                              value={image}
+                              onChange={(e) => setImage(e.target.value)}
+                       />
+                   </div>
+                   <div className="project_input">
+                       Technolgies
+                       <input type="text"
+                              value={technologies}
+                              onChange={(e) => setTechnologies(e.target.value)}
+                       />
+                   </div>
+                   <div className="project_input">
+                       Project Link
+                       <input type="text"
+                              value={pageLink}
+                              onChange={(e) => setPageLink(e.target.value)}
+                       />
+                   </div>
+                   <div className="project_input">
+                       Source Code Link
+                       <input type="text"
+                              value={sourceLink}
+                              onChange={(e) => setSourceLink(e.target.value)}
+                       />
+                   </div>
 
 
 
-                <div>
-                    <button onClick={sendRequests}>Send</button>
-                </div>
+                   <div>
+                       <button onClick={sendRequests}>Send</button>
+                   </div></div>
 
-                <div><p>Delete Project</p>
-                    {projects? projects.map(project => (
-                        <div>
-                            <p>{project._id}</p>
-                            <button onClick={() => deleteProject(project._id)}> Delete Project</button>
-                        </div>
 
-                    )): <></>}
-                </div>
+
             </div>
         </div>
     )

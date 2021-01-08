@@ -30,6 +30,7 @@ h3, h2 {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 8vh;
 
   &_name, &_description, &_technologies, &_links {
     animation:  ease-out 1.5s  0s 1  slideFromLeft;
@@ -51,11 +52,12 @@ h3, h2 {
   }
 
   &_block {
-    animation: 1.5s ease-out 0s 1 slideFromTop;
+    animation: 1s ease-out 0s 1 slideFromTop;
     margin: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    height: 250px;
 
     width: 200px;
     background-color: #eaeaea;
@@ -124,5 +126,67 @@ h3, h2 {
     color: #00AF64;
     font-weight: 800;
     transition: ease-out .5s;
+  }
+}
+
+
+.project {
+  &_container {
+    display: flex;
+    margin: 50px;
+
+  }
+
+  &_add {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 500px;
+
+  }
+
+  &_input {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    margin: 5px;
+    align-items: center;
+    input {
+      border-radius: 10px;
+      border: 1px solid #0799d3;
+      width: 200px;
+      height: 30px;
+    }
+  }
+
+  &_table {
+    border: 2px solid #0799d3;
+    border-radius: 15px;
+    margin-right: 200px;
+    padding: 10px;
+
+    &-row {
+      width: 500px;
+      display: flex;
+      align-items: center;
+    }
+    &-name {
+      width: 150px;
+    }
+    &-id {
+      width: 300px;
+    }
+    &-button {
+      width: 50px;
+      border-radius: 10px;
+      margin: 2px;
+      background-color: lightcoral;
+      height: 30px;
+      cursor: pointer;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      border: none;
+    }
   }
 }
