@@ -26,7 +26,7 @@ export default function Signin(key, value) {
         if (localStorage.getItem('token')) {
             Router.push('/admin/projects')
         }
-    }, [localStorage.getItem('token')])
+    }, [])
 
 
     useEffect(() => {
