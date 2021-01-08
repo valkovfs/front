@@ -69,7 +69,7 @@ export default function index({projects}) {
     )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const res = await fetch(`${process.env.API_KEY}api/projects`)
     const data = await res.json()
 
