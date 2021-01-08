@@ -23,10 +23,10 @@ export default function Signin(key, value) {
     const setJwt = useDispatch();
 
     useEffect(() => {
-        if (jwtToken) {
+        if (localStorage.getItem('token')) {
             Router.push('/admin/projects')
         }
-    }, [jwtToken])
+    }, [localStorage.getItem('token')])
 
 
     useEffect(() => {

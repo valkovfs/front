@@ -15,7 +15,7 @@ export default function AdminProjects({projects}) {
                 {!tabStatus ?
                     <ProjectsList projects={projects}/>
 
-                : <div></div>}
+                : <></>}
             </div>
             </div>
         </div>

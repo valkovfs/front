@@ -133,7 +133,7 @@ export default function index({projects}) {
 
 
                    <div>
-                       <button onClick={sendRequests}>Send</button>
+                       <button className="project_add-button" onClick={sendRequests}>Send</button>
                    </div></div>
 
 
