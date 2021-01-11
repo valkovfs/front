@@ -14,23 +14,40 @@
   flex-direction: column;
   margin: auto;
   width: 100%;
+  &_block {
+    -webkit-animation: 1s ease-in 9.3s 1 backwards ShowAvatar;
+    animation: 1s ease-in 9.3s 1 backwards ShowAvatar;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00AF64;
+    border-radius: 50%;
+    width: 270px;
+    height: 270px;
+    margin: 50px;
+  }
+  &_img {
+    border: #00AF64;
+    width: 200px;
+    height: 200px;
+  }
 }
 
-.main_block {
-  -webkit-animation: 1s ease-in 9.3s 1 backwards ShowAvatar;
-  animation: 1s ease-in 9.3s 1 backwards ShowAvatar;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #00AF64;
-  border-radius: 50%;
-  width: 350px;
-  height: 350px;
-  margin: 50px;
+.socials {
+  &_block {
+
+    -webkit-animation: 1s ease-in 10s 1 backwards ShowAvatar;
+    animation: 1s ease-in 10s 1 backwards ShowAvatar;
+    &-icon {
+      width: 50px;
+      margin: 10px;
+      transition: 0.3s ease-out;
+    }
+    &-icon:hover {
+      width: 60px;
+      transition: 0.3s ease-out;
+    }
+  }
 }
 
-.main_img {
-  border: #00AF64;
-  width: 250px;
-  height: 250px;
-}
+
