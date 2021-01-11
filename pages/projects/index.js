@@ -7,6 +7,7 @@ import Header from "../../components/header/Header";
 import jwtClear from "../../redux/actionCreators/jwtClear";
 import CustomLoader from "../../components/Loader";
 import Menu from "../../components/menu/Menu";
+import NoImage from '../../public/img/No_Image_Available.jpg'
 
 export default function index({projects}) {
     const [isLoading, setIsLoading] = useState(0)
@@ -38,31 +39,39 @@ export default function index({projects}) {
                 <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
             </Head>
             <>
-            <Header
-                request={true}
-                signout={false}
-                signin={true}
-                func={signOut}
-                home={true}/>
-            <div className="container">
-                <Menu/>
-            </div>
+                <Header
+                    request={true}
+                    signout={false}
+                    signin={true}
+                    func={signOut}
+                    home={true}/>
+                <div className="container">
+                    <Menu/>
+                </div>
                 <>
                     {isLoading ?
                         <div className="projects">{projects.map(data => (
                             data ?
                                 <div className="projects_block">
-                                    <img src={data.img} className="projects_block-img" alt="Screen"/>
+                                    <div className="projects_block-img">
+                                        {data.img
+                                        ? <img src={data.img} alt="Screen"/>
+                                        : <img src={NoImage} />
+                                    }
+                                    </div>
+
                                     <div className="projects_block-info">
                                         <p className="projects_block-name">{data.name}</p>
 
-                                        <Link href={`/project/[id]`} as={`project/${data._id}`}><button className="projects_block-button">Details</button></Link>
+                                        <Link href={`/project/[id]`} as={`project/${data._id}`}>
+                                            <button className="projects_block-button"> <p>See more</p></button>
+                                        </Link>
                                     </div>
                                 </div> : <></>
                         ))}
                         </div> : <CustomLoader/>
                     }
-            </>
+                </>
 
             </>
         </>
