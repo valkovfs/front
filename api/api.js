@@ -1,7 +1,7 @@
 import axios from "axios";
 
  const api = axios.create({
-    baseURL: 'https://valkov.xyz/'
+    baseURL: 'http://104.40.185.245:4000/'
 })
 
 export default api
